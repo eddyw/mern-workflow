@@ -1,5 +1,5 @@
 # mern-workflow 
-#### (In Development | Kind of works | Alpha)
+#### (In Development | Kind of works | It may break)
 
 It is a tool for building isomorphic applications using the MERN stack (Mongo, Express.js, React.js & Redux.js and Node).
 
@@ -11,6 +11,13 @@ It is a tool for building isomorphic applications using the MERN stack (Mongo, E
   npm install
   npm start
 ```
+## Features
+* Pretty Project Structure
+* Hot Reloading.
+* Traspile from ES2015 (ES6) to ES5 with babel.
+* Support for **Aync/Await** and **Generators** functions when targeting ES5.
+* Time travelling with Redux.js. Support for [Chrome Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* Using **ReactDOMServer** for generating static .html files on the server side (`renderToStaticMarkup`).
 
 ## Available Commands
 
@@ -38,7 +45,9 @@ It is a tool for building isomorphic applications using the MERN stack (Mongo, E
 .
 ├── src
 |   ├── client
+|   |   └── (it's not completed)
 |   └── server
+|   |   └── (it's not completed)
 ├── .babelrc
 ├── .eslintrc.json
 ├── package.json
