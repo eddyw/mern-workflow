@@ -1,5 +1,5 @@
 import path from 'path';
-import webpackConfig from '../../webpack.config.prod.server';
+import webpackConfig from '../../webpack.client';
 
 const config = {
   mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/test',

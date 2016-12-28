@@ -1,16 +1,22 @@
 import express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
+import colors from 'colors';
 import config from './server.config';
-import indexView from './views/index';
+import html from './home';
+import MyApplication from '../application/myApplication';
 
 const ONE_YEAR_MS = 31557600000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV === 'production' ?
+  'production' :
+  'development';
+
+const { log } = console;
 const app = express();
 
 if (NODE_ENV === 'development') {
   const webpack = require('webpack');
-  const webpackDev = require('../../webpack.config.dev');
+  const webpackDev = require('../../webpack.client');
   const compilerDev = webpack(webpackDev);
   app.use(require('webpack-dev-middleware')(compilerDev, { noInfo: true, publicPath: config.publicPath }));
   app.use(require('webpack-hot-middleware')(compilerDev));
@@ -23,18 +29,23 @@ app.use(config.publicPath, express.static(config.staticDir, {
   maxAge: NODE_ENV === 'development' ? 1 : ONE_YEAR_MS,
 }));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.set('Content-Type', 'text/html').status(200);
   if (NODE_ENV === 'production') {
     res.setHeader('Cache-Control', 'public, max-age=31536000');
   }
-  res.send(indexView());
+  res.send(html(
+    'myApplication',
+    MyApplication,
+    { counter: 300 },
+  ));
 });
 
 app.listen(config.port, config.host, (err) => {
   if (err) {
-    console.error(err);
+    log(colors.red(err));
     process.exit(1);
   }
-  console.log(`Listening at http://${config.host}:${config.port}`);
+  log(colors.underline.blue(`NODE_ENV = "${NODE_ENV}"`));
+  log(colors.blue(`Listening at http://${config.host}:${config.port}`));
 });

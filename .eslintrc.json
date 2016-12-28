@@ -4,14 +4,20 @@
     "browser": true,
     "node": true
   },
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
   "extends": "airbnb",
   "rules": {
-    "no-console": "off", 
     "import/no-extraneous-dependencies": "off",
     "global-require": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "babel/no-invalid-this": 1,
+    "react/prop-types": "off" // ES7+ Class properties not supported by Airbnb's eslint rules
   },
   "plugins": [
+    "babel",
     "react",
     "jsx-a11y",
     "import"

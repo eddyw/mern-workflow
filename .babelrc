@@ -1,17 +1,12 @@
 {
   "presets": [
-    "react",
+    "es2015",
     "stage-3",
-    "latest",
-    "es2015"
+    "react"
   ],
   "plugins": [
-    ["transform-runtime"], // To Implement details of ECMAScript specs
+    ["transform-runtime"],
+    ["transform-class-properties", { "spec": true }],
     ["transform-es2015-classes"]
-  ],
-  "env": {
-    "production": {
-      "presets": ["babili"]
-    }
-  }
+  ]
 }
