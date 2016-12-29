@@ -10,14 +10,19 @@ const defaultState = Object.assign({
   process.env.IS_BROWSER ? window.PRELOADED_STATE : {},
 );
 
-class Application extends React.PureComponent {
+class Application extends React.Component {
   static defaultProps = { state: defaultState }
   static PropTypes = { state: PropTypes.string.isRequired }
+  static preloadedState = Object.assign({
+    other: 1,
+  },
+    process.env.IS_BROWSER ? window.PRELOADED_STATE : {},
+  );
   render() {
-    const { state } = this.props;
+    // const { state } = this.props;
     return (
       <div>{/* Provider */}
-        Hi there!: {JSON.stringify(state)}
+        Hi there!: {JSON.stringify(Application.preloadedState)}
         <Button />
       </div>
     );
