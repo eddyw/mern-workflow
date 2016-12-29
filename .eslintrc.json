@@ -14,7 +14,8 @@
     "global-require": "off",
     "consistent-return": "off",
     "babel/no-invalid-this": 1,
-    "react/prop-types": "off" // ES7+ Class properties not supported by Airbnb's eslint rules
+    "react/prop-types": "off", // ES7+ Class properties not supported by Airbnb's eslint rules,
+    "react/no-danger": "off"
   },
   "plugins": [
     "babel",
