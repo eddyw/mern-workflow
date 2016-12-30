@@ -20,13 +20,13 @@ The primary focus of this project is to be simple, generic, and reusable.
   npm start
 ```
 ## Features
-* Pretty Project Structure & Coding Style
-* Easy way to write SPA (Single Page Applications)
-* Easy way to write MSPA (Multiple Single Page Applications)
+* Pretty Project Structure & Coding Style.
+* Easy way to write SPA (Single Page Applications).
+* Easy way to write MSPA (Multiple Single Page Applications).
 * Write all your projects with ES6 (Server & Client).
 * Traspile from ES2015 (ES6) to ES5 with babel.
 * Hot Reloading.
-* Support for **Aync/Await** and **Generators** functions when targeting ES5.
+* Support for **Aync/Await** and **Generators** functions.
 * Time travelling with Redux.js. Support for [Chrome Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * Server-side Rendering.
 
