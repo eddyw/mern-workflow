@@ -8,10 +8,10 @@
 // · ExtractTextPlugin: https://github.com/webpack/extract-text-webpack-plugin
 // · DefinePlugin: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const entries = require('./webpack.entry');
 
 const NODE_ENV = process.env.NODE_ENV === 'production' ? 
   'production' : 
@@ -20,16 +20,19 @@ const defineEnv = {
   NODE_ENV: JSON.stringify(NODE_ENV),
   IS_BROWSER: true,
 };
+
+// Entries are all valid applications in ./src/application/[appName]
 const entry = {};
-Object.getOwnPropertyNames(entries).forEach(
-  Application => {
-    entry[Application.toLocaleLowerCase()] = 
-      NODE_ENV === 'production' ? 
-        [ 'babel-polyfill', entries[Application] ] :
-        [ 'babel-polyfill', 'webpack-hot-middleware/client', entries[Application ]
-    ]
-  }
-);
+fs.readdirSync(path.resolve(__dirname, './src/application'))
+  .forEach(app => {
+    const dir = path.resolve(__dirname, `./src/application/${app}/`);
+    const index = path.resolve(__dirname, `./src/application/${app}/index.jsx`);
+    if (fs.existsSync(index))
+      entry[app.toLowerCase()] =
+        NODE_ENV === 'production' ? 
+          [ 'babel-polyfill', index ] :
+          [ 'babel-polyfill', 'webpack-hot-middleware/client', index ]
+  });
 const include = [
   /node_modules/,
   path.resolve(__dirname, 'src/application'),
