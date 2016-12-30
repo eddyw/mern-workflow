@@ -15,7 +15,8 @@
     "consistent-return": "off",
     "babel/no-invalid-this": 1,
     "react/prop-types": "off", // ES7+ Class properties not supported by Airbnb's eslint rules,
-    "react/no-danger": "off"
+    "react/no-danger": "off",
+    "array-callback-return": "off"
   },
   "plugins": [
     "babel",
