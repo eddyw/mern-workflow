@@ -1,6 +1,7 @@
 .toImplementLater
 .vscode
 .backup
+./build
 
 # Logs
 logs
