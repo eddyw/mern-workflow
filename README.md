@@ -7,7 +7,7 @@ A boilerplate for building isomorphic JavaScript applications using the MERN sta
 
 > ─ Abraham Lincoln
 
-One of the most difficult parts of starting a project is to choose the right tools and set up a development environment or workflow. I surely spent more than 6 hours “sharpening” this boilerplate, so it can offer a simple way of writing isomorphic JavaScript applications using the MERN stack.
+One of the most difficult parts of starting a project is to choose the right tools and set up a workflow. I surely spent more than 6 hours “sharpening” this boilerplate, so it can offer a simple way of writing isomorphic JavaScript applications using the MERN stack.
 
 The primary focus of this project is to be simple, generic, and reusable.
 
@@ -77,7 +77,7 @@ import Application from '../application/HelloWorld'  <- It just makes sense.
 Another point to take into account is that all SPA (single or multi) that are created in the `src/application` directory should have a valid entry point or main file called `index.jsx` in order to be automatically added by webpack to the `entry` and transpiled. Otherwise they will be ignored.
 
 ## Contributing
-If you found any problem or you think something should be refactored, let me know. Open an issue.
+If you found any problem or you think something should be refactored, let me know.
 
 ## License
 Copyright (c) 2016 [Eddy Wilson](https://www.linkedin.com/in/ieddyw)
