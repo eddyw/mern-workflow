@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const defineEnv = {
   NODE_ENV: JSON.stringify('production'),
-  IS_BROWSER: false,
+  IN_BROWSER: false,
 };
 const plugins = [
   new ExternalsPlugin({
