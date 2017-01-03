@@ -11,7 +11,10 @@ exports.home = (req, res) => {
     preloadedState: Object.assign({}, Application.preloadedState, {
       otherState: 123,
     }),
-    payload: {},
+    payload: {
+      title: 'My Application',
+      description: 'This is an example.',
+    },
     cache: true,
   });
 };
