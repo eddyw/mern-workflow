@@ -18,7 +18,7 @@ const NODE_ENV = process.env.NODE_ENV === 'production' ?
   'development';
 const defineEnv = {
   NODE_ENV: JSON.stringify(NODE_ENV),
-  IS_BROWSER: true,
+  IN_BROWSER: true,
 };
 
 // Entries are all valid applications in ./src/application/[appName]
@@ -36,7 +36,8 @@ fs.readdirSync(path.resolve(__dirname, './src/application'))
 const include = [
   /node_modules/,
   path.resolve(__dirname, 'src/application'),
-  path.resolve(__dirname, 'src/client')
+  path.resolve(__dirname, 'src/client'),
+  path.resolve(__dirname, 'src/lib'),
 ];
 const plugins_dev = [
   new webpack.HotModuleReplacementPlugin(),
@@ -88,6 +89,12 @@ module.exports = {
         loader: NODE_ENV === 'production' ?
           ExtractTextPlugin.extract('raw-loader', 'css-loader?minimize') :
           ExtractTextPlugin.extract('raw-loader', 'css-loader')
+      }, {
+        test: /\.(jpe?g|png|svg)$/,
+        loader: 'file-loader?name=/asset/image/[name].[ext]'
+      }, {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        loader: 'file-loader?name=/asset/font/[name].[ext]'
       }, {
         test: /\.json$/,
         loader: 'json-loader'
