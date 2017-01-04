@@ -1,6 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Button from './component/Button';
+import {
+  Button,
+  Container,
+  Divider,
+  Icon,
+  Menu,
+} from 'semantic-ui-react';
 
 // This file is required by the server for server-side-rendering,
 // so require only when env var is set to "IN_BROWSER".
@@ -22,8 +28,18 @@ class Application extends React.Component {
   render() {
     return (
       <div>{/* Provider */}
-        Hi there!: {JSON.stringify(Application.preloadedState)}
-        <Button />
+        <Menu attached stackable inverted>
+          <Container>
+            <Menu.Item active onClick={() => {}}>
+              <Icon loading inverted color="teal" name="circle outline" size="large" />
+              Home
+            </Menu.Item>
+          </Container>
+        </Menu>
+        <Divider clearing hidden />
+        <Container>
+          {JSON.stringify(Application.preloadedState)}
+        </Container>
       </div>
     );
   }
