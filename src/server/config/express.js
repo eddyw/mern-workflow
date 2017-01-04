@@ -8,9 +8,7 @@ import path from 'path';
 import config from './server';
 
 const ONE_YEAR = 31557600000;
-const NODE_ENV = process.env.NODE_ENV === 'production' ?
-  'production' :
-  'development';
+const NODE_ENV = process.env.NODE_ENV;
 
 const app = express();
 
