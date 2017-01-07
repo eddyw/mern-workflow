@@ -18,7 +18,9 @@ const NODE_ENV = process.env.NODE_ENV === 'production' ?
   'development';
 const defineEnv = {
   NODE_ENV: JSON.stringify(NODE_ENV),
-  IN_BROWSER: true,
+   // When true, the content is rendered in the client-side.
+   // when it's not defined or 'false', the content is server-side-rendered.
+  BROWSER: true,
 };
 
 // Entries are all valid applications in ./src/application/[appName]
