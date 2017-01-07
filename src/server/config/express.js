@@ -29,12 +29,16 @@ app.engine('jsx', expressReactViews.createEngine({
     ],
   },
 }));
-app.use(compression({ level: 9 }));
+app.use(compression({
+  level: 9,
+  threshold: 0,
+  filter: () => true,
+}));
 app.use(bodyParser.json({ limit: '1mb' }));
 app.use(bodyParser.urlencoded({ limit: '1mb', extended: true }));
 app.use(expressValidator());
 app.use(config.publicPath, express.static(config.distDir, {
-  maxAge: NODE_ENV === 'development' ? 1 : ONE_YEAR,
+  maxAge: NODE_ENV === 'development' ? 0 : ONE_YEAR,
 }));
 app.use(errorHandler());
 
