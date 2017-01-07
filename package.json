@@ -16,7 +16,8 @@
     "eslint": "npm run eslint:client && npm run eslint:server",
     "eslint:client": "eslint --color src/application/**/**",
     "eslint:server": "eslint --color src/server/**/**",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Eddy Wilson <eddyw.dev@outlook.com> (https://github.com/eddyw)",
   "license": "MIT",
