@@ -14,16 +14,16 @@ if (process.env.NODE_ENV !== 'production') {
   process.exit(1);
 }
 
-const defineEnv = {
-  NODE_ENV: JSON.stringify('production'),
-  IN_BROWSER: false,
-};
 const plugins = [
+  new webpack.IgnorePlugin(/\.css$/),
   new ExternalsPlugin({
     type: 'commonjs',
     include: path.join(__dirname, '/node_modules/'),
   }),
-  new webpack.DefinePlugin({ 'process.env': defineEnv })
+  // Avoid using the console in production mode.
+  new webpack.DefinePlugin({ 'console': {
+    log: () => void 0
+  }})
 ];
 
 module.exports = {
