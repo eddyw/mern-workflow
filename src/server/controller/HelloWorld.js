@@ -2,19 +2,25 @@
  * GET /
  * Home page.
  */
-import Application from '../../application/HelloWorld';
+import { match } from 'react-router';
+import Application, { Routes, store } from '../../application/HelloWorld';
 
 exports.home = (req, res) => {
-  res.render('home', {
-    Application,
-    applicationName: 'HelloWorld',
-    preloadedState: Object.assign({}, Application.preloadedState, {
-      otherState: 123,
-    }),
-    payload: {
-      title: 'My Application',
-      description: 'This is an example.',
-    },
-    cache: true,
+  // Check if the url matches and choose the route to render.
+  match({
+    routes: Routes,
+    location: req.url,
+  }, (err, redirect, props) => {
+    res.render('home', {
+      Application, // The application itself.
+      payload: {
+        title: 'My Application', // Title as it appears in browser.
+        description: 'This is an example.', // Description.
+        props, // Pass all these properties to RouterContext.
+        store, // Gets store.getState() and saves it in window.PRELOAD_STATE.
+      },
+      cache: true,
+    });
   });
 };
+
