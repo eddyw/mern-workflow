@@ -6,19 +6,14 @@ const NODE_ENV = process.env.NODE_ENV;
 class HelloMessage extends React.PureComponent {
   static defaultProps = {
     Application: <p>Missing Application :(</p>,
-    applicationName: '',
-    preloadedState: JSON.stringify({}),
     payload: {},
   }
   static PropTypes = {
     Application: PropTypes.element.isRequired,
-    applicationName: PropTypes.string.isRequired,
-    preloadedState: PropTypes.string.isRequired,
     payload: PropTypes.object.isRequired,
   }
   render() {
-    const { payload, Application, applicationName, preloadedState } = this.props;
-    Application.preloadedState = preloadedState;
+    const { payload, Application } = this.props;
     return (
       <html lang="en">
         <head>
@@ -27,14 +22,21 @@ class HelloMessage extends React.PureComponent {
           <title>{payload.title}</title>
           <meta name="description" content={payload.description} />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-          <link rel="stylesheet" href={`/static/css/${applicationName.toLowerCase()}.css`} />{/* Application CSS */}
+          <link rel="stylesheet" href={`/static/css/${Application.name.toLowerCase()}.css`} />{/* Application StyleSheet */}
         </head>
         <body>
-          {/* <h3>{applicationName}</h3> */}
-          <div id="app-body" dangerouslySetInnerHTML={{ __html: NODE_ENV === 'production' ? renderToString(<Application />) : '' }} /> {/* Server-Side-Rendering of Application */}
-          <script dangerouslySetInnerHTML={{ __html: `window.PRELOADED_STATE=${JSON.stringify(preloadedState)};` }} /> {/* Preloaded State of Application */}
-          <script src="/static/commons.js" /> {/* Just common JS */}
-          <script src={`/static/${applicationName.toLowerCase()}.js`} /> {/* React Application */}
+          <div
+            id="app-body"
+            dangerouslySetInnerHTML={{
+              __html: NODE_ENV === 'production' ? renderToString(<Application routerProps={payload.props} />) : '' }}
+          />{/* Server-Side-Rendering */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.PRELOADED_STATE=${JSON.stringify(payload.store.getState())};`,
+            }}
+          />{/* Preloaded State of the Application */}
+          <script src="/static/commons.js" />{/* Just common JS */}
+          <script src={`/static/${Application.name.toLowerCase()}.js`} />{/* The React Application */}
         </body>
       </html>
     );
