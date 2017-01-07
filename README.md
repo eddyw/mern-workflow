@@ -27,7 +27,7 @@ Run in development:
 Run in production:
 ```
   npm run build
-  npm serve
+  npm run serve
 ```
 ## Features
 * Pretty Project Structure & Coding Style.
