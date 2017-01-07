@@ -1,5 +1,5 @@
 # mern-workflow
-**Alpha Version | In Development**
+**Alpha Version (Not ready for production)**
 
 A boilerplate for building isomorphic JavaScript applications using the MERN stack (Mongo, Express.js, React.js & Redux.js, and NodeJS).
 
@@ -13,11 +13,21 @@ The primary focus of this project is to be simple, generic, and reusable.
 
 ## Quickstart
 
+Firstly, you can fork or clone this project.
 ```
   git clone https://github.com/eddyw/mern-workflow.git
   cd mern-workflow/
+```
+Run in development:
+
+```
   npm install
   npm start
+```
+Run in production:
+```
+  npm run build
+  npm serve
 ```
 ## Features
 * Pretty Project Structure & Coding Style.
@@ -32,12 +42,11 @@ The primary focus of this project is to be simple, generic, and reusable.
 
 ## Available Commands
 
-* `npm start` ─ a simpler way of calling `npm run start:dev`.
-* `npm run start:dev` ─ start the server in development mode with hot-reload enabled.
-* `npm run start:prod` ─ start the server in production mode. **NOTE: Run before `npm run build`.**
-* `npm run build` ─ runs `npm run clean`, `npm run build:client` and `npm run build:server`.
+* `npm start` ─ start the server in development mode with hot-reload enabled.
+* `npm run build` ─ runs `npm run clean:build`, `npm run build:client` and `npm run build:server`.
 * `npm run build:client` ─ build *src/client* in production mode.
 * `npm run build:server` ─ build *src/server* in production mode.
+* `npm run serve` ─ start the server in production mode. (Do not forget to build first.)
 * `npm run clean` ─ runs `npm run clean:build` and `npm run clean:node_modules`.
 * `npm run clean:build` ─ erases *build/* folder.
 * `npm run clean:node_modules` ─ erases *node_modules/* folder.
@@ -46,9 +55,8 @@ The primary focus of this project is to be simple, generic, and reusable.
 * `npm run eslint:server` ─ runs the JavaScript linter in *src/server/**/* **.
 
 ## Other Commands *(not yet implemented)*
-* `npm run test`
-* `npm run jest`
-* `npm run deploy`
+
+* `npm run deploy` ─ It pushes the repository to heroku `git push heroku master`
 
 ## Project Structure
 
@@ -56,9 +64,24 @@ The primary focus of this project is to be simple, generic, and reusable.
 .
 ├── src
 |   ├── application
-|   |   └── (Work in progress)
+|   |   ├── [ApplicationName]
+|   |   |   ├── action
+|   |   |   ├── component
+|   |   |   ├── container
+|   |   |   ├── dispatcher
+|   |   |   ├── reducer
+|   |   |   ├── style
+|   |   |   ├── view
+|   |   |   └── index.jsx
 |   └── server
-|   |   └── (Work in progress)
+|   |   ├── config
+|   |   ├── controller
+|   |   ├── view
+|   |   └── index.jsx
+|   ├── lib
+|   |   └── (Third-party libraries)
+|   ├── vendor
+|   |   └── (Third-party static libraries)
 ├── .babelrc
 ├── .eslintignore
 ├── .eslintrc.json
