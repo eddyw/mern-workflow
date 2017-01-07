@@ -3,15 +3,14 @@ import app from './config/express';
 import config from './config/server';
 
 const { log } = console;
-const NODE_ENV = process.env.NODE_ENV === 'production' ?
-  'production' :
-  'development';
+const NODE_ENV = process.env.NODE_ENV;
 
 // Controllers
 const HelloWorld = require('./controller/HelloWorld');
 
 // Routes
 app.get('/', HelloWorld.home);
+app.get('/about', HelloWorld.home);
 
 // Server Running...
 app.listen(config.port, config.host, (err) => {
