@@ -69,7 +69,7 @@ Run in production:
 |   |   |   ├── component
 |   |   |   ├── container
 |   |   |   ├── dispatcher
-|   |   |   ├── reducer
+|   |   |   ├── store
 |   |   |   ├── style
 |   |   |   ├── view
 |   |   |   └── index.jsx
