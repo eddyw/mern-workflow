@@ -53,18 +53,18 @@ const plugins_prod = [
   new webpack.optimize.UglifyJsPlugin({
     compress: { warnings: false },
     comments: false,
-    sourceMap: true
+    sourceMap: false
   }),
   new webpack.optimize.DedupePlugin(),
 ];
 
 module.exports = {
-  devtool: NODE_ENV === 'production' ? 'source-map' : 'eval-cheap-module-source-map',
+  devtool: NODE_ENV === 'production' ? 'source-map' : 'eval',
   entry,
   output: {
     path: path.join(__dirname, 'build/dist'),
     filename: '[name].js',
-    publicPath: '/static/' /* Hot-Reload does not work if this is not set */
+    publicPath: '/static' /* Hot-Reload does not work if this is not set */
   },
   resolve: {
     extensions: [ '', '.js', '.jsx' ],
@@ -85,6 +85,12 @@ module.exports = {
         loader: NODE_ENV === 'production' ?
           ExtractTextPlugin.extract('raw-loader', 'css-loader?minimize!sass-loader') :
           ExtractTextPlugin.extract('raw-loader', 'css-loader!sass-loader')
+      }, {
+        test: /\.less$/,
+        include,
+        loader: NODE_ENV === 'production' ?
+          ExtractTextPlugin.extract('raw-loader', 'css-loader?minimize!less-loader') :
+          ExtractTextPlugin.extract('raw-loader', 'css-loader!less-loader')
       }, {
         test: /\.css$/,
         include,

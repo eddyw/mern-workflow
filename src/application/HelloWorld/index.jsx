@@ -12,7 +12,7 @@ import About from './view/About';
 if (module.hot) module.hot.accept();
 
 // When including CSS Stylesheets always check if env.BROWSER
-if (process.env.BROWSER === true) require('../../lib/semantic/dist/semantic.css');
+if (process.env.BROWSER) require('../../lib/semantic/dist/semantic.css');
 
 class Application extends React.Component {
   static name = 'HelloWorld'; // The Application's name must coincide with the folder's name.
