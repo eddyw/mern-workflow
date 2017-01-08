@@ -20,6 +20,7 @@ if (NODE_ENV === 'development') {
 app.set('views', path.resolve(__dirname, '../view'));
 app.set('view engine', 'jsx');
 app.engine('jsx', expressReactViews.createEngine({
+  beautify: NODE_ENV === 'development',
   babel: {
     presets: ['es2015', 'stage-3', 'react'],
     plugins: [
