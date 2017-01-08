@@ -3,23 +3,20 @@
  * Home page.
  */
 import { match } from 'react-router';
-import Application, { Routes, store } from '../../application/HelloWorld';
+import Application from '../../application/HelloWorld';
 
 exports.home = (req, res) => {
-  // Check if the url matches and choose the route to render.
   match({
-    routes: Routes,
+    routes: Application.Routes,
     location: req.url,
-  }, (err, redirect, props) => {
-    res.render('home', {
-      Application, // The application itself.
+  }, (err, redirect, routerProps) => {
+    res.render('default', {
+      Application,
       payload: {
-        title: 'My Application', // Title as it appears in browser.
-        description: 'This is an example.', // Description.
-        props, // Pass all these properties to RouterContext.
-        store, // Gets store.getState() and saves it in window.PRELOAD_STATE.
+        title: 'My Application',
+        description: 'This is an example.',
+        routerProps, // Pass Props to RouterContext.
       },
-      cache: true,
     });
   });
 };
