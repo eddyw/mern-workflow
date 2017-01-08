@@ -3,9 +3,9 @@ import { renderToString } from 'react-dom/server';
 
 const NODE_ENV = process.env.NODE_ENV;
 
-class HelloMessage extends React.PureComponent {
+export default class View extends React.PureComponent {
   static defaultProps = {
-    Application: <p>Missing Application :(</p>,
+    Application: <p>Something is missing here.</p>,
     payload: {},
   }
   static PropTypes = {
@@ -28,11 +28,11 @@ class HelloMessage extends React.PureComponent {
           <div
             id="app-body"
             dangerouslySetInnerHTML={{
-              __html: NODE_ENV === 'production' ? renderToString(<Application routerProps={payload.props} />) : '' }}
+              __html: NODE_ENV === 'production' ? renderToString(<Application routerProps={payload.routerProps} />) : '' }}
           />{/* Server-Side-Rendering */}
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.PRELOADED_STATE=${JSON.stringify(payload.store.getState())};`,
+              __html: `window.PRELOADED_STATE=${JSON.stringify(Application.store.getState())};`,
             }}
           />{/* Preloaded State of the Application */}
           <script src="/static/commons.js" />{/* Just common JS */}
@@ -43,4 +43,3 @@ class HelloMessage extends React.PureComponent {
   }
 }
 
-export default HelloMessage;
