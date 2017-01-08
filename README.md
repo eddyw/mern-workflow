@@ -1,6 +1,8 @@
 # mern-workflow
 **Alpha Version (Not ready for production)**
 
+Demo: [mern-workflow.herokuapp.com](https://mern-workflow.herokuapp.com/)
+
 A boilerplate for building isomorphic JavaScript applications using the MERN stack (Mongo, Express.js, React.js & Redux.js, and NodeJS).
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
