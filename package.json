@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run build:client && cross-env NODE_ENV=development nodemon ./src/server/index.jsx --watch ./src/server/ --exec babel-node",
     "build": "npm run clean:build && npm run eslint && npm run build:client && npm run build:server",
-    "build:client": "cross-env NODE_ENV=production IN_BROWSER=false webpack --config webpack.client.js",
-    "build:server": "cross-env NODE_ENV=production IN_BROWSER=false webpack --config webpack.server.js",
+    "build:client": "cross-env NODE_ENV=production BROWSER=false webpack --config webpack.client.js",
+    "build:server": "cross-env NODE_ENV=production BROWSER=false webpack --config webpack.server.js",
     "build:semantic": "cd src/lib/semantic && gulp build",
     "serve": "NODE_ENV=production node ./build/server.bundle.js",
     "clean": "npm run clean:build && npm run clean:node_modules",
