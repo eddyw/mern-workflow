@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { push } from 'react-router-redux';
+import { push } from 'react-router-redux';
 import {
   Container,
   Icon,
@@ -8,7 +8,7 @@ import {
   Header,
 } from 'semantic-ui-react';
 
-const Navbar = ({ location }) => (
+const Navbar = ({ location, goto }) => (
   <Menu attached stackable inverted>
     <Container>
       <Menu.Item>
@@ -22,10 +22,10 @@ const Navbar = ({ location }) => (
           </Header.Content>
         </Header>
       </Menu.Item>
-      <Menu.Item href="/" active={location.pathname === '/'}>
+      <Menu.Item onClick={goto('/')} active={location.pathname === '/'}>
         Home
       </Menu.Item>
-      <Menu.Item href="/about" active={location.pathname === '/about'}>
+      <Menu.Item onClick={goto('/about')} active={location.pathname === '/about'}>
         About
       </Menu.Item>
     </Container>
@@ -33,7 +33,13 @@ const Navbar = ({ location }) => (
 );
 
 const mapStateToProps = () => ({});
+const mapDispatchToProps = dispatch => ({
+  goto(path) {
+    return () => dispatch(push(path));
+  },
+});
 
 export default connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(Navbar);
