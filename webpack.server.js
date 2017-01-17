@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const plugins = [
-  new webpack.IgnorePlugin(/\.css$/),
+  new webpack.IgnorePlugin(/\.(css|sass|scss|less)$/),
   new ExternalsPlugin({
     type: 'commonjs',
     include: path.join(__dirname, '/node_modules/'),
