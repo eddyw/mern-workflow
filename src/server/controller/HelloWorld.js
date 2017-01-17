@@ -5,7 +5,7 @@
 import { match } from 'react-router';
 import Application from '../../application/HelloWorld';
 
-exports.home = (req, res) => {
+export default (req, res) => {
   match({
     routes: Application.Routes,
     location: req.url,
