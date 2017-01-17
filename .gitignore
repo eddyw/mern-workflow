@@ -2,8 +2,6 @@
 .vscode
 .backup
 .directory
-.env
-
 build/*
 
 # Logs
