@@ -1,0 +1,39 @@
+// Too much nesting!, but it is just to illustrate the example.
+.navbar {
+  display: block;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  .navbar-list {
+    list-style: none;
+    margin-bottom: 0;
+
+    .navbar-item {
+      position: relative;
+      float: left;
+      margin-bottom: 0;
+
+      .navbar-link {
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .2rem;
+        margin-right: 35px;
+        text-decoration: none;
+        line-height: 6.5rem;
+        color: #222;
+        &.active {
+          text-decoration: underline;
+        }
+        &:hover, &.active {
+          color: #0FA0CE;
+        }
+        &:hover, &:active {
+          outline: 0;
+        }
+      }
+    }
+  }
+}
