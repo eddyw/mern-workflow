@@ -28,9 +28,7 @@ class Application extends React.Component {
     return (
       <Provider store={store}>
         {process.env.BROWSER ? // Client-Side / Server-Side rendering
-          <Router
-            history={syncHistoryWithStore(browserHistory, store)}
-          >
+          <Router history={syncHistoryWithStore(browserHistory, store)}>
             {Application.Routes}
           </Router> :
           <RouterContext {...this.props.routerProps} />
