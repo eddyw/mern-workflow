@@ -37,6 +37,7 @@ export default class View extends React.PureComponent {
           />{/* Preloaded State of the Application */}
           <script src="/static/commons.js" />{/* Just common JS */}
           <script src={`/static/${Application.name.toLowerCase()}.js`} />{/* The React Application */}
+          <script async defer src="https://buttons.github.io/buttons.js" />
         </body>
       </html>
     );
