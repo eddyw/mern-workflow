@@ -23,6 +23,25 @@
     "node": "7.4.0",
     "npm": "4.1.1"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-3",
+      "react"
+    ],
+    "plugins": [
+      ["transform-runtime"],
+      ["transform-class-properties", { "spec": true }],
+      ["transform-es2015-classes"]
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          ["transform-react-constant-elements"]
+        ]
+      }
+    }
+  },
   "dependencies": {
     "axios": "0.15.3",
     "babel-polyfill": "6.20.0",
