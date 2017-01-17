@@ -7,13 +7,7 @@
   "plugins": [
     ["transform-runtime"], // https://babeljs.io/docs/plugins/transform-runtime/
     ["transform-class-properties", { "spec": true }], // https://babeljs.io/docs/plugins/transform-class-properties/
-    ["transform-es2015-classes"] // https://babeljs.io/docs/plugins/transform-es2015-classes/
-  ],
-  "env": {
-    "production": {
-      "plugins": [
-        ["transform-react-constant-elements"] // https://babeljs.io/docs/plugins/transform-react-constant-elements/
-      ]
-    }
-  }
+    ["transform-es2015-classes"], // https://babeljs.io/docs/plugins/transform-es2015-classes/
+    ["transform-react-constant-elements"] // https://babeljs.io/docs/plugins/transform-react-constant-elements/
+  ]
 }
