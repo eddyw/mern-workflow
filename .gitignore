@@ -3,7 +3,6 @@
 .backup
 .directory
 .env
-build/*
 
 # Logs
 logs
