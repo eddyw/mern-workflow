@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "mern-workflow",
-  "version": "0.1.13-alpha",
+  "version": "0.1.14-alpha",
   "description": "",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --config webpack.client.js && cross-env NODE_ENV=development nodemon ./src/server/index.jsx --watch ./src/server/ --exec babel-node -e 'js jsx'",

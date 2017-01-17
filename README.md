@@ -1,5 +1,5 @@
 # mern-workflow
-**Alpha Version (Not ready for production)**
+**Alpha Version**
 
 Demo: [mern-workflow.herokuapp.com](https://mern-workflow.herokuapp.com/)
 
@@ -56,7 +56,7 @@ Run in production:
 * `npm run eslint:client` ─ runs the JavaScript linter in *src/client/**/* **.
 * `npm run eslint:server` ─ runs the JavaScript linter in *src/server/**/* **.
 
-## Other Commands *(not yet implemented)*
+## Other Commands
 
 * `npm run deploy` ─ It pushes the repository to heroku `git push heroku master`
 
@@ -71,14 +71,18 @@ Run in production:
 |   |   |   ├── component
 |   |   |   ├── container
 |   |   |   ├── dispatcher
-|   |   |   ├── store
+|   |   |   ├── reducer
 |   |   |   ├── style
 |   |   |   ├── view
-|   |   |   └── index.jsx
+|   |   |   ├── index.jsx
+|   |   |   ├── routes.jsx
+|   |   |   └── store.js
 |   └── server
-|   |   ├── config
-|   |   ├── controller
+|   |   ├── model
 |   |   ├── view
+|   |   ├── controller
+|   |   ├── config.js
+|   |   ├── routes.js
 |   |   └── index.jsx
 |   ├── lib
 |   |   └── (Third-party libraries)
