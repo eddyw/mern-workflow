@@ -1,7 +1,6 @@
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
-import errorHandler from 'errorhandler';
 import express from 'express';
 import expressReactViews from 'express-react-views';
 import expressValidator from 'express-validator';
@@ -58,7 +57,6 @@ app.use(expressValidator());
 app.use(app.get('config_public_path'), express.static(app.get('config_dist_folder'), { maxAge: app.get('config_static_maxage') }));
 if (NODE_ENV === 'development') {
   app.use(morgan('dev'));
-  app.use(errorHandler());
 }
 
 // mongodb config
