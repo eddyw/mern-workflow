@@ -11,17 +11,26 @@ const ReduxDevTools = (
   process.env.NODE_ENV === 'development' ? window.devToolsExtension : false
 );
 
+// Return all reducers
+const getReducers = () => combineReducers({
+  location,
+  routing: routerReducer,
+});
+
 // Store
 const store = createStore(
-  combineReducers({ // Reducers
-    location,
-    routing: routerReducer,
-  }),
-  // process.env.BROWSER ? window.PRELOADED_STATE : {}, // Default state
+  getReducers(),
   compose( // Middleware
     applyMiddleware(thunk),
     applyMiddleware(routerMiddleware(browserHistory)), // Manage navigation events via Redux actions
     ReduxDevTools ? ReduxDevTools() : f => f,
   ),
 );
+
+// Hot reload! Redux
+if (module.hot) {
+  module.hot.accept('./reducers/', () => {
+    store.replaceReducer(getReducers());
+  });
+}
 export default store;
