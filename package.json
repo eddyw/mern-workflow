@@ -30,14 +30,25 @@
       "react"
     ],
     "plugins": [
-      ["transform-runtime"],
-      ["transform-class-properties", { "spec": true }],
-      ["transform-es2015-classes"]
+      [
+        "transform-runtime"
+      ],
+      [
+        "transform-class-properties",
+        {
+          "spec": true
+        }
+      ],
+      [
+        "transform-es2015-classes"
+      ]
     ],
     "env": {
       "production": {
         "plugins": [
-          ["transform-react-constant-elements"]
+          [
+            "transform-react-constant-elements"
+          ]
         ]
       }
     }
@@ -64,28 +75,28 @@
     "cross-env": "3.1.4",
     "dotenv": "2.0.0",
     "errorhandler": "1.5.0",
+    "express": "4.14.0",
     "express-react-views": "0.10.2",
     "express-session": "1.14.2",
     "express-validator": "3.1.2",
-    "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
     "immutable": "3.8.1",
     "mongoose": "4.7.6",
     "morgan": "1.7.0",
+    "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-helmet": "3.2.3",
     "react-redux": "5.0.1",
-    "react-router-redux": "4.0.7",
     "react-router": "3.0.0",
-    "react": "15.4.1",
-    "redux-promise": "0.5.3",
+    "react-router-redux": "4.0.7",
     "redux": "3.6.0",
+    "redux-thunk": "2.2.0",
     "rimraf": "2.5.4",
     "sanitize.css": "4.1.0",
+    "webpack": "1.14.0",
     "webpack-dev-middleware": "1.9.0",
     "webpack-externals-plugin": "1.0.0",
-    "webpack-hot-middleware": "2.15.0",
-    "webpack": "1.14.0"
+    "webpack-hot-middleware": "2.15.0"
   },
   "devDependencies": {
     "css-loader": "0.26.1",
