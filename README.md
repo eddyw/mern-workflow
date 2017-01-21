@@ -56,10 +56,6 @@ Run in production:
 * `npm run eslint:client` ─ runs the JavaScript linter in *src/client/**/* **.
 * `npm run eslint:server` ─ runs the JavaScript linter in *src/server/**/* **.
 
-## Other Commands
-
-* `npm run deploy` ─ It pushes the repository to heroku `git push heroku master`
-
 ## Project Structure
 
 ```
@@ -109,6 +105,6 @@ Another point to take into account is that all SPA (single or multi) that are cr
 If you found any problem or you think something should be refactored, let me know.
 
 ## License
-Copyright (c) 2016 [Eddy Wilson](https://www.linkedin.com/in/ieddyw)
+Copyright (c) 2016 ─ 2017 [Eddy Wilson](https://www.linkedin.com/in/ieddyw)
 
 MERN-WORKFLOW is released under the [MIT License](http://www.opensource.org/licenses/MIT).
