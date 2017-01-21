@@ -1,6 +1,7 @@
 import { browserHistory } from 'react-router';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
+import thunk from 'redux-thunk';
 // Reducers
 import location from './reducer/location';
 
@@ -16,10 +17,10 @@ const store = createStore(
     location,
     routing: routerReducer,
   }),
-  process.env.BROWSER ? window.PRELOADED_STATE : {}, // Default state
+  // process.env.BROWSER ? window.PRELOADED_STATE : {}, // Default state
   compose( // Middleware
-    // Manage navigation events via Redux actions
-    applyMiddleware(routerMiddleware(browserHistory)),
+    applyMiddleware(thunk),
+    applyMiddleware(routerMiddleware(browserHistory)), // Manage navigation events via Redux actions
     ReduxDevTools ? ReduxDevTools() : f => f,
   ),
 );
