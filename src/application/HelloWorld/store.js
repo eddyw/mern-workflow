@@ -29,7 +29,7 @@ const store = createStore(
 
 // Hot reload! Redux
 if (module.hot) {
-  module.hot.accept('./reducers/', () => {
+  module.hot.accept('./store', () => {
     store.replaceReducer(getReducers());
   });
 }
